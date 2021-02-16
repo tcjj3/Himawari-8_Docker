@@ -84,8 +84,9 @@ RUN export DIR_TMP="$(mktemp -d)" \
                                                 libldap-2.4-2:i386 \
                                                 libtiff5:i386 \
                                                 libasound2-plugins:i386 \
-                                                libwine:i386 wine32 \
-  && echo "wine is installed." \
+                                                libwine:i386 \
+                                                wine32 \
+  && echo "wine32 is installed."
 
 
 
