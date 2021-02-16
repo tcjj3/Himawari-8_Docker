@@ -27,7 +27,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
                                                 python3-pip \
                                                 libpcsclite1 \
                                                 wine \
-  && mkdir -p /etc/caddy\
+  && mkdir -p /etc/caddy \
   && curl -L https://github.com/Haivision/srt/archive/v1.4.2.tar.gz -o srt.tar.gz \
   && tar zxvf srt.tar.gz \
   && cd srt-1.4.2 \
@@ -76,13 +76,23 @@ RUN export DIR_TMP="$(mktemp -d)" \
   && chmod +x /usr/local/bin/himawari-rx/src/*.py \
   && chmod +x /usr/local/bin/himawari-rx/src/tools/*.py \
   && rm -rf ${DIR_TMP} \
-  && apt-get autoremove --purge ca-certificates make build-essential cmake git make unzip -y
+  && apt-get autoremove --purge ca-certificates make build-essential cmake git make unzip -y \
+  && dpkg --add-architecture i386 \
+  && apt-get update \
+  || echo "continue..." \
+  && apt-get install --no-install-recommends -y libgphoto2-6:i386 \
+                                                libldap-2.4-2:i386 \
+                                                libtiff5:i386 \
+                                                libasound2-plugins:i386 \
+                                                libwine:i386 wine32 \
+  && echo "wine is installed." \
 
 
 
 
 
 ENTRYPOINT ["sh", "-c", "/opt/entrypoint.sh"]
+
 
 
 
