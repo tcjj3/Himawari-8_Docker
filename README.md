@@ -3,7 +3,8 @@ Docker for Himawari-8 decoding, using himawari-rx and himawari-rx_auto_scripts.
 
 ## Useage:
 ```
-docker run -d -i -t \
+[tcjj3@localhost]$ docker volume create himawari-rx
+[tcjj3@localhost]$ docker run -d -i -t \
  --restart always \
  --name=himawari-8 \
  --device /dev/dvb \
