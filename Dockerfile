@@ -76,7 +76,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
   && chmod +x /usr/local/bin/himawari-rx/src/*.py \
   && chmod +x /usr/local/bin/himawari-rx/src/tools/*.py \
   && rm -rf ${DIR_TMP} \
-  && apt-get autoremove --purge curl ca-certificates make build-essential cmake git make unzip -y
+  && apt-get autoremove --purge ca-certificates make build-essential cmake git make unzip -y
 
 
 
