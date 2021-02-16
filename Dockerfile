@@ -27,6 +27,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
                                                 python3-pip \
                                                 libpcsclite1 \
                                                 wine \
+  && mkdir -p /etc/caddy\
   && curl -L https://github.com/Haivision/srt/archive/v1.4.2.tar.gz -o srt.tar.gz \
   && tar zxvf srt.tar.gz \
   && cd srt-1.4.2 \
