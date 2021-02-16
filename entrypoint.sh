@@ -26,6 +26,7 @@ cd /usr/local/bin/himawari-rx/src
 
 
 
+rm /tmp/time_monitor_to_terminate_TSDuck.lock
 rm /tmp/exit_himawari_rx.txt
 
 
