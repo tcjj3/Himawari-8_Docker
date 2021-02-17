@@ -92,10 +92,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
                                                 libasound2-plugins:i386 \
                                                 libwine:i386 \
                                                 wine32 \
-  && echo "wine32 is installed." \
-  && ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
-  || echo "continue..." \
-  && echo "Using Asia/Tokyo timezone for Himawari-8."
+  && echo "wine32 is installed."
 
 
 
