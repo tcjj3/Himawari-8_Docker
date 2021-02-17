@@ -33,7 +33,7 @@ Docker for Himawari-8 decoding, using himawari-rx and himawari-rx_auto_scripts.
 
 ## Start:
 
-Install docker-ce:
+1. Install docker-ce:
 ```
 [tcjj3@debian]$ sudo dnf install curl
 [tcjj3@debian]$ sudo curl -fsSL get.docker.com -o get-docker.sh
@@ -43,7 +43,7 @@ Install docker-ce:
 [tcjj3@debian]$ sudo systemctl enable docker && sudo systemctl start docker
 ```
 
-Run Himawari-8_Docker:
+2. Run Himawari-8_Docker:
 ```
 [tcjj3@debian]$ docker volume create himawari-rx
 [tcjj3@debian]$ docker run -d -i -t \
@@ -57,7 +57,7 @@ Run Himawari-8_Docker:
  -v himawari-rx:/usr/local/bin/himawari-rx/src/received \
  tcjj3/himawari-8_docker:latest
 ```
-Or using other ports (The following example is forwarded local ports 5007 & 9998 to docker container's ports 5006 & 9999):
+   Or using other ports (The following example is forwarded local ports 5007 & 9998 to docker container's ports 5006 & 9999):
 ```
 [tcjj3@debian]$ docker volume create himawari-rx
 [tcjj3@debian]$ docker run -d -i -t \
