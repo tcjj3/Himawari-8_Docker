@@ -47,9 +47,11 @@ Run Himawari-8_Docker:
 ```
 [tcjj3@debian]$ docker volume create himawari-rx
 [tcjj3@debian]$ docker run -d -i -t \
+ –privileged \
  --restart always \
  --name=himawari-8 \
- --device /dev/dvb \
+ --device /dev/bus/usb \
+ -v /dev/dvb:/dev/dvb \
  -p 5006:5006 \
  -p 9999:9999 \
  -v himawari-rx:/usr/local/bin/himawari-rx/src/received \
