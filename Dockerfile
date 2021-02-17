@@ -92,6 +92,12 @@ RUN export DIR_TMP="$(mktemp -d)" \
                                                 libasound2-plugins:i386 \
                                                 libwine:i386 \
                                                 wine32 \
+  || apt-get install --no-install-recommends -y libgphoto2-6:i386 \
+                                                libldap-2.4-2:i386 \
+                                                libtiff5:i386 \
+                                                libasound2-plugins:i386 \
+                                                libwine:i386 \
+                                                wine32 \
   && echo "wine32 is installed."
 
 
