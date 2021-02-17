@@ -2,11 +2,12 @@ FROM debian:buster-slim
 
 LABEL maintainer "Chaojun Tan <https://github.com/tcjj3>"
 
-COPY entrypoint.sh /opt/
+ADD convert.sh /opt/convert.sh
+ADD entrypoint.sh /opt/entrypoint.sh
 
 RUN export DIR_TMP="$(mktemp -d)" \
   && cd $DIR_TMP \
-  && chmod +x /opt/entrypoint.sh \
+  && chmod +x /opt/*.sh \
   && sed -i "s/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list \
   && sed -i "s/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list \
   && apt-get update \
@@ -27,6 +28,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
                                                 python3-pip \
                                                 libpcsclite1 \
                                                 wine \
+                                                imagemagick \
   && mkdir -p /etc/caddy \
   && curl -L https://github.com/Haivision/srt/archive/v1.4.2.tar.gz -o srt.tar.gz \
   && tar zxvf srt.tar.gz \
@@ -75,6 +77,8 @@ RUN export DIR_TMP="$(mktemp -d)" \
   && chmod +x /usr/local/bin/himawari-rx/src/*.sh \
   && chmod +x /usr/local/bin/himawari-rx/src/*.py \
   && chmod +x /usr/local/bin/himawari-rx/src/tools/*.py \
+  && echo "55 23 * * * /opt/convert.sh" > ${DIR_TMP}/crontab \
+  && crontab ${DIR_TMP}/crontab \
   && rm -rf ${DIR_TMP} \
   && apt-get autoremove --purge ca-certificates make build-essential cmake git make unzip -y \
   && dpkg --add-architecture i386 \

@@ -2,6 +2,14 @@
 
 
 
+
+/etc/init.d/cron restart
+
+
+
+
+
+
 cat << EOF > /etc/caddy/Caddyfile
 0.0.0.0:5006 {
     root /usr/local/bin/himawari-rx/src/received
@@ -10,6 +18,7 @@ cat << EOF > /etc/caddy/Caddyfile
     browse
 }
 EOF
+
 
 
 
@@ -28,6 +37,9 @@ cd /usr/local/bin/himawari-rx/src
 
 rm /tmp/time_monitor_to_terminate_TSDuck.lock
 rm /tmp/exit_himawari_rx.txt
+rm /tmp/udp.dump
+rm /tmp/udp_fordecode.dump
+
 
 
 #./start.sh
