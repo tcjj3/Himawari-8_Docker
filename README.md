@@ -57,4 +57,18 @@ Run Himawari-8_Docker:
  -v himawari-rx:/usr/local/bin/himawari-rx/src/received \
  tcjj3/himawari-8_docker:latest
 ```
+Or using other ports (The following example is forwarded local ports 5007 & 9998 to docker container's ports 5006 & 9999):
+```
+[tcjj3@debian]$ docker volume create himawari-rx
+[tcjj3@debian]$ docker run -d -i -t \
+ --privileged \
+ --restart always \
+ --name=himawari-8 \
+ --device /dev/bus/usb \
+ -v /dev/dvb:/dev/dvb \
+ -p 5007:5006 \
+ -p 9998:9999 \
+ -v himawari-rx:/usr/local/bin/himawari-rx/src/received \
+ tcjj3/himawari-8_docker:latest
+```
 
