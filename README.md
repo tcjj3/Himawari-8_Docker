@@ -47,7 +47,7 @@ Run Himawari-8_Docker:
 ```
 [tcjj3@debian]$ docker volume create himawari-rx
 [tcjj3@debian]$ docker run -d -i -t \
- –privileged \
+ --privileged \
  --restart always \
  --name=himawari-8 \
  --device /dev/bus/usb \
