@@ -14,6 +14,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
   || echo continue... \
   && apt-get install --no-install-recommends -y curl \
                                                 unzip \
+                                                psmisc \
                                                 cron \
                                                 tclsh \
                                                 pkg-config \
