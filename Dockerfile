@@ -79,7 +79,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
   && chmod +x /usr/local/bin/himawari-rx/src/*.sh \
   && chmod +x /usr/local/bin/himawari-rx/src/*.py \
   && chmod +x /usr/local/bin/himawari-rx/src/tools/*.py \
-  && echo "55 23 * * * /opt/convert.sh" > ${DIR_TMP}/crontab \
+  && echo "59 23 * * * /opt/convert.sh &" > ${DIR_TMP}/crontab \
   && crontab ${DIR_TMP}/crontab \
   && rm -rf ${DIR_TMP} \
   && apt-get autoremove --purge ca-certificates make build-essential cmake git make unzip -y \
@@ -92,13 +92,22 @@ RUN export DIR_TMP="$(mktemp -d)" \
                                                 libasound2-plugins:i386 \
                                                 libwine:i386 \
                                                 wine32 \
-  && echo "wine32 is installed."
+  && echo "wine32 is installed." \
+  && ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
+  || echo "continue..." \
+  && echo "Using Asia/Tokyo timezone for Himawari-8."
+
+
+
+
 
 
 
 
 
 ENTRYPOINT ["sh", "-c", "/opt/entrypoint.sh"]
+
+
 
 
 
