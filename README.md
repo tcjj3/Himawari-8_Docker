@@ -16,14 +16,14 @@ Docker for Himawari-8 decoding, using himawari-rx and himawari-rx_auto_scripts.
 [tcjj3@debian]$ sudo ./install.sh
 ```
 
-2. Install firmware:
+2. Install "firmware":
 ```
 [tcjj3@debian]$ sudo wget http://www.tbsdtv.com/download/document/linux/tbs-tuner-firmwares_v1.0.tar.bz2
 [tcjj3@debian]$ sudo tar jxvf tbs-tuner-firmwares_v1.0.tar.bz2 -C /lib/firmware/
 [tcjj3@debian]$ sudo reboot
 ```
 
-3. For "Lock the S signal":
+3. Create link files for DVB interfaces to "lock the S signal":
 ```
 [tcjj3@debian]$ sudo ln -s demux0 /dev/dvb/adapter0/demux1
 [tcjj3@debian]$ sudo ln -s dvr0 /dev/dvb/adapter0/dvr1
