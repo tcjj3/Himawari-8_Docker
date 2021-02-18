@@ -16,7 +16,7 @@ def create_gif(image_list, gif_name):
     print("Saving  - " + gif_name)
     
     # Save them as frames into a gif
-    kargs = { 'duration': 0.24, 'fps': 1 }
+    kargs = { 'duration': 0.1, 'fps': 1 }
     imageio.mimsave(gif_name, frames, 'GIF', **kargs)
     
     print("Saved  - " + gif_name)
