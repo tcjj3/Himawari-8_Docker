@@ -73,7 +73,7 @@ Docker for Himawari-8 decoding, using himawari-rx and himawari-rx_auto_scripts.
 ```
 
 
-## Get Pictures
+## Get Files
 
 ### Local Disk
 
@@ -87,7 +87,7 @@ Docker for Himawari-8 decoding, using himawari-rx and himawari-rx_auto_scripts.
 ```
 http://[Your IP]:5006
 ```
-   Or other port (In the above "Start" example):
+   Or the other port (Using in the above "Start" example):
 ```
 http://[Your IP]:5007
 ```
@@ -96,7 +96,7 @@ http://[Your IP]:5007
 ```
 http://[Your IP]:9999
 ```
-   Or other port (In the above "Start" example):
+   Or the other port (Using in the above "Start" example):
 ```
 http://[Your IP]:9998
 ```
