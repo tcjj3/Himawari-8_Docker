@@ -27,7 +27,7 @@ done
 
 
 # Merged
-mkdir -p $Gif_Dir
+#mkdir -p $Gif_Dir
 
 #convert -delay 24 -loop 0 /tmp/resize_$DATE/*.png $Gif_Dir/0000-2400_$DATE.gif
 cd /tmp/resize_$DATE
