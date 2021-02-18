@@ -3,11 +3,13 @@ FROM debian:buster-slim
 LABEL maintainer "Chaojun Tan <https://github.com/tcjj3>"
 
 ADD convert.sh /opt/convert.sh
+ADD gif.py /opt/gif.py
 ADD entrypoint.sh /opt/entrypoint.sh
 
 RUN export DIR_TMP="$(mktemp -d)" \
   && cd $DIR_TMP \
   && chmod +x /opt/*.sh \
+  && chmod +x /opt/*.py \
   && sed -i "s/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list \
   && sed -i "s/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list \
   && apt-get update \
@@ -79,6 +81,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
   && chmod +x /usr/local/bin/himawari-rx/src/*.sh \
   && chmod +x /usr/local/bin/himawari-rx/src/*.py \
   && chmod +x /usr/local/bin/himawari-rx/src/tools/*.py \
+  && pip3 install --no-cache-dir imageio \
   && echo "59 23 * * * /opt/convert.sh &" > ${DIR_TMP}/crontab \
   && crontab ${DIR_TMP}/crontab \
   && rm -rf ${DIR_TMP} \
