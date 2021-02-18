@@ -78,7 +78,7 @@ Docker for Himawari-8 decoding, using himawari-rx and himawari-rx_auto_scripts.
 ### Local Disk
 
 ```
-[tcjj3@debian]$ cd /var/lib/docker/volumes/himawari-rx/_data/src/received
+[tcjj3@debian]$ cd /var/lib/docker/volumes/himawari-rx/_data
 ```
 
 ### Via HTTP
