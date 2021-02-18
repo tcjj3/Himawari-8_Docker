@@ -72,3 +72,32 @@ Docker for Himawari-8 decoding, using himawari-rx and himawari-rx_auto_scripts.
  tcjj3/himawari-8_docker:latest
 ```
 
+
+## Get Pictures
+
+### Local Disk
+
+```
+[tcjj3@debian]$ cd /var/lib/docker/volumes/himawari-rx/_data/src/received
+```
+
+### Via HTTP
+
+1. Website (Default port):
+```
+http://[Your IP]:5006
+```
+   Or other port (In the above "Start" example):
+```
+http://[Your IP]:5007
+```
+
+2. Filebrowser (Default port):
+```
+http://[Your IP]:9999
+```
+   Or other port (In the above "Start" example):
+```
+http://[Your IP]:9998
+```
+
