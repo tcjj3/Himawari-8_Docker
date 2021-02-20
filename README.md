@@ -1,5 +1,5 @@
 # Himawari-8_Docker
-Docker for Himawari-8 decoding, using himawari-rx and himawari-rx_auto_scripts.
+Docker for Himawari-8 decoding, using [sam210723/himawari-rx](https://github.com/sam210723/himawari-rx) and [tcjj3/himawari-rx_auto_scripts](https://github.com/tcjj3/himawari-rx_auto_scripts).
 
 
 ## Before Start:
