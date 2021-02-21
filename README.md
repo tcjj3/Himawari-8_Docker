@@ -46,6 +46,7 @@ Docker for Himawari-8 decoding, using [sam210723/himawari-rx](https://github.com
 2. Run Himawari-8_Docker:
 ```
 [tcjj3@debian]$ docker volume create himawari-rx
+[tcjj3@debian]$ docker volume create himawari-rx_config
 [tcjj3@debian]$ docker run -d -i -t \
  --privileged \
  --restart always \
@@ -54,6 +55,7 @@ Docker for Himawari-8 decoding, using [sam210723/himawari-rx](https://github.com
  -v /dev/dvb:/dev/dvb \
  -p 5006:5006 \
  -p 9999:9999 \
+ -v himawari-rx_config:/opt/himawari-rx_config \
  -v himawari-rx:/usr/local/bin/himawari-rx/src/received \
  tcjj3/himawari-8_docker:latest
 ```
@@ -68,6 +70,7 @@ Docker for Himawari-8 decoding, using [sam210723/himawari-rx](https://github.com
  -v /dev/dvb:/dev/dvb \
  -p 5007:5006 \
  -p 9998:9999 \
+ -v himawari-rx_config:/opt/himawari-rx_config \
  -v himawari-rx:/usr/local/bin/himawari-rx/src/received \
  tcjj3/himawari-8_docker:latest
 ```
