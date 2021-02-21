@@ -2,14 +2,14 @@ FROM debian:buster-slim
 
 LABEL maintainer "Chaojun Tan <https://github.com/tcjj3>"
 
-ADD convert.sh /opt/convert.sh
 ADD gif.py /opt/gif.py
+ADD convert.sh /opt/convert.sh
 ADD entrypoint.sh /opt/entrypoint.sh
 
 RUN export DIR_TMP="$(mktemp -d)" \
   && cd $DIR_TMP \
-  && chmod +x /opt/*.sh \
   && chmod +x /opt/*.py \
+  && chmod +x /opt/*.sh \
   && sed -i "s/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list \
   && sed -i "s/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list \
   && apt-get update \
@@ -19,6 +19,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
                                                 procps \
                                                 psmisc \
                                                 cron \
+                                                vim \
                                                 tclsh \
                                                 pkg-config \
                                                 libssl-dev \
@@ -111,7 +112,13 @@ RUN export DIR_TMP="$(mktemp -d)" \
 
 
 
+
+
 ENTRYPOINT ["sh", "-c", "/opt/entrypoint.sh"]
+
+
+
+
 
 
 

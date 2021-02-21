@@ -3,7 +3,9 @@
 
 
 
+
 /etc/init.d/cron restart
+
 
 
 
@@ -26,7 +28,10 @@ EOF
 
 
 
+
+
 cd /usr/local/bin/himawari-rx/src
+
 
 
 
@@ -35,16 +40,20 @@ cd /usr/local/bin/himawari-rx/src
 
 
 
+
 rm /tmp/time_monitor_to_terminate_TSDuck.lock
 rm /tmp/exit_himawari_rx.txt
 rm /tmp/udp.dump
 rm /tmp/udp_fordecode.dump
+rm -r /tmp/resize_*
+
 
 
 
 #./start.sh
 ./himawari-rx__auto.sh &
 ./time_monitor_to_terminate_TSDuck.sh
+
 
 
 
