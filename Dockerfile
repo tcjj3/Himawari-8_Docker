@@ -35,6 +35,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
                                                 wine \
                                                 imagemagick \
   && mkdir -p /etc/caddy \
+  && mkdir -p /opt/himawari-rx_config \
   && curl -L https://github.com/Haivision/srt/archive/v1.4.2.tar.gz -o srt.tar.gz \
   && tar zxvf srt.tar.gz \
   && cd srt-1.4.2 \

@@ -4,7 +4,11 @@
 
 
 
+
+
 /etc/init.d/cron restart
+
+
 
 
 
@@ -30,13 +34,21 @@ EOF
 
 
 
-cd /usr/local/bin/himawari-rx/src
+
+
+# Path to save "filebrowser.db"
+#cd /usr/local/bin/himawari-rx/src
+cd /opt/himawari-rx_config
+
+
 
 
 
 
 /usr/local/bin/caddy --conf=/etc/caddy/Caddyfile &
 /usr/local/bin/filebrowser -r /usr/local/bin/himawari-rx/src/received -p 9999 -a 0.0.0.0 &
+
+
 
 
 
@@ -50,9 +62,18 @@ rm -r /tmp/resize_*
 
 
 
+
+
+
+cd /usr/local/bin/himawari-rx/src
+
 #./start.sh
 ./himawari-rx__auto.sh &
 ./time_monitor_to_terminate_TSDuck.sh
+
+
+
+
 
 
 
