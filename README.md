@@ -7,18 +7,22 @@ Docker for Himawari-8 decoding, using [sam210723/himawari-rx](https://github.com
 1. Install driver (example for TBS5520SE):
 ```
 [tcjj3@debian]$ sudo apt-get update
-[tcjj3@debian]$ sudo apt install git
-[tcjj3@debian]$ sudo mkdir tbsdriver
+[tcjj3@debian]$ sudo apt install -y wget curl ca-certificates git patchutils gcc kmod make libproc-processtable-perl
+[tcjj3@debian]$ mkdir tbsdriver
 [tcjj3@debian]$ cd tbsdriver
-[tcjj3@debian]$ sudo git clone https://github.com/tbsdtv/media_build.git
-[tcjj3@debian]$ sudo git clone --depth=1 https://github.com/tbsdtv/linux_media.git -b latest ./media
+[tcjj3@debian]$ git clone https://github.com/tbsdtv/media_build.git
+[tcjj3@debian]$ git clone --depth=1 https://github.com/tbsdtv/linux_media.git -b latest ./media
 [tcjj3@debian]$ cd media_build
-[tcjj3@debian]$ sudo ./install.sh
+[tcjj3@debian]$ make dir DIR=../media
+[tcjj3@debian]$ make distclean
+[tcjj3@debian]$ make -j4
+[tcjj3@debian]$ sudo make install
+[tcjj3@debian]$ cd ..
 ```
 
 2. Install "firmware":
 ```
-[tcjj3@debian]$ sudo wget http://www.tbsdtv.com/download/document/linux/tbs-tuner-firmwares_v1.0.tar.bz2
+[tcjj3@debian]$ wget http://www.tbsdtv.com/download/document/linux/tbs-tuner-firmwares_v1.0.tar.bz2
 [tcjj3@debian]$ sudo tar jxvf tbs-tuner-firmwares_v1.0.tar.bz2 -C /lib/firmware/
 [tcjj3@debian]$ sudo reboot
 ```
@@ -35,8 +39,8 @@ Docker for Himawari-8 decoding, using [sam210723/himawari-rx](https://github.com
 
 1. Install docker-ce:
 ```
-[tcjj3@debian]$ sudo dnf install curl
-[tcjj3@debian]$ sudo curl -fsSL get.docker.com -o get-docker.sh
+[tcjj3@debian]$ sudo apt install curl
+[tcjj3@debian]$ curl -fsSL get.docker.com -o get-docker.sh
 [tcjj3@debian]$ sudo sh get-docker.sh
 [tcjj3@debian]$ sudo groupadd docker
 [tcjj3@debian]$ sudo usermod -aG docker $USER
