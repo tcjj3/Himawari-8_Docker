@@ -7,7 +7,7 @@ Docker for Himawari-8 decoding, using [sam210723/himawari-rx](https://github.com
 1. Install driver (example for TBS5520SE):
 ```
 [tcjj3@debian]$ sudo apt-get update
-[tcjj3@debian]$ sudo apt install -y wget curl ca-certificates git patchutils gcc kmod make libproc-processtable-perl
+[tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl
 [tcjj3@debian]$ mkdir tbsdriver
 [tcjj3@debian]$ cd tbsdriver
 [tcjj3@debian]$ git clone https://github.com/tbsdtv/media_build.git
