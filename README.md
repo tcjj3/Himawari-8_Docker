@@ -10,13 +10,11 @@ Docker for Himawari-8 decoding, using [sam210723/himawari-rx](https://github.com
 [tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl
 [tcjj3@debian]$ mkdir tbsdriver
 [tcjj3@debian]$ cd tbsdriver
-[tcjj3@debian]$ git clone https://github.com/tbsdtv/media_build.git
-[tcjj3@debian]$ git clone --depth=1 https://github.com/tbsdtv/linux_media.git -b latest ./media
+[tcjj3@debian]$ wget http://www.tbsdtv.com/download/document/linux/media_build-2021-02-04.tar.bz2
+[tcjj3@debian]$ tar jxvf media_build-2021-02-04.tar.bz2
 [tcjj3@debian]$ cd media_build
-[tcjj3@debian]$ make dir DIR=../media
-[tcjj3@debian]$ make distclean
-[tcjj3@debian]$ make -j4
-[tcjj3@debian]$ sudo make install
+[tcjj3@debian]$ sudo rm -rf /lib/modules/`uname -r`/kernel/drivers/media/
+[tcjj3@debian]$ sudo ./install.sh
 [tcjj3@debian]$ cd ..
 ```
 
