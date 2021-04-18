@@ -6,7 +6,7 @@ Docker for Himawari-8 decoding, using [sam210723/himawari-rx](https://github.com
 
 1. Install driver (example for TBS5520SE):
 ```
-[tcjj3@debian]$ sudo apt-get update
+[tcjj3@debian]$ sudo apt update
 [tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl
 [tcjj3@debian]$ mkdir tbsdriver
 [tcjj3@debian]$ cd tbsdriver
@@ -39,7 +39,7 @@ Docker for Himawari-8 decoding, using [sam210723/himawari-rx](https://github.com
 
 1. Install docker-ce:
 ```
-[tcjj3@debian]$ sudo apt install curl
+[tcjj3@debian]$ sudo apt install -y curl
 [tcjj3@debian]$ curl -fsSL get.docker.com -o get-docker.sh
 [tcjj3@debian]$ sudo sh get-docker.sh
 [tcjj3@debian]$ sudo groupadd docker
