@@ -49,9 +49,9 @@ Docker for Himawari-8 decoding, using [sam210723/himawari-rx](https://github.com
 
 2. Run Himawari-8_Docker:
 ```
-[tcjj3@debian]$ docker volume create himawari-rx
-[tcjj3@debian]$ docker volume create himawari-rx_config
-[tcjj3@debian]$ docker run -d -i -t \
+[tcjj3@debian]$ sudo docker volume create himawari-rx
+[tcjj3@debian]$ sudo docker volume create himawari-rx_config
+[tcjj3@debian]$ sudo docker run -d -i -t \
  --privileged \
  --restart always \
  --name=himawari-8 \
