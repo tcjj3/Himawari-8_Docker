@@ -65,9 +65,9 @@ Docker for Himawari-8 decoding, using [sam210723/himawari-rx](https://github.com
 ```
    Or using other ports (The following example is forwarded local ports 5007 & 9998 to docker container's ports 5006 & 9999):
 ```
-[tcjj3@debian]$ docker volume create himawari-rx
-[tcjj3@debian]$ docker volume create himawari-rx_config
-[tcjj3@debian]$ docker run -d -i -t \
+[tcjj3@debian]$ sudo docker volume create himawari-rx
+[tcjj3@debian]$ sudo docker volume create himawari-rx_config
+[tcjj3@debian]$ sudo docker run -d -i -t \
  --privileged \
  --restart always \
  --name=himawari-8 \
