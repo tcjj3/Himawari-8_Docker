@@ -74,7 +74,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
   && curl -L -o ${DIR_TMP}/caddy/caddy.tar.gz https://github.com/caddyserver/caddy/releases/download/v1.0.4/caddy_v1.0.4_linux_${ARCH}.tar.gz \
   && tar -zxf ${DIR_TMP}/caddy/caddy.tar.gz -C ${DIR_TMP}/caddy \
   && mv ${DIR_TMP}/caddy/caddy /usr/local/bin/caddy \
-  && curl -fsSL https://filebrowser.org/get.sh | bash \
+  && curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash \
   && git clone https://github.com/sam210723/himawari-rx /usr/local/bin/himawari-rx \
   && mkdir -p /usr/local/bin/himawari-rx/src/received \
   && pip3 install --no-cache-dir -r /usr/local/bin/himawari-rx/requirements.txt \
