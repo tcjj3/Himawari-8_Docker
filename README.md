@@ -77,6 +77,24 @@ Docker for Himawari-8 decoding, using [**sam210723/himawari-rx**](https://github
  -v himawari-rx:/usr/local/bin/himawari-rx/src/received \
  tcjj3/himawari-8_docker:latest
 ```
+   If you want to customize the times of generate animation pictures, just add a `CONVERT_TIMES` environment variable in it. The times are UTC times, included hours and minutes. Each time connnect with `,`, like "`2200,0800`".<br>
+   For example:
+```
+[tcjj3@debian]$ sudo docker volume create himawari-rx
+[tcjj3@debian]$ sudo docker volume create himawari-rx_config
+[tcjj3@debian]$ sudo docker run -d -i -t \
+ --privileged \
+ --restart always \
+ --name=himawari-8 \
+ --device /dev/bus/usb \
+ -v /dev/dvb:/dev/dvb \
+ -e CONVERT_TIMES=2200,0800 \
+ -p 5007:5006 \
+ -p 9998:9999 \
+ -v himawari-rx_config:/opt/himawari-rx_config \
+ -v himawari-rx:/usr/local/bin/himawari-rx/src/received \
+ tcjj3/himawari-8_docker:latest
+```
 
 
 ## Get Files
