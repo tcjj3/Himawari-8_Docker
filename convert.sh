@@ -12,19 +12,44 @@ len=`echo "$1" | awk '{printf("%d", length($0))}'`
 echo "$len"
 }
 
+
+
+
 getFileTime(){
 Time="$1"
 
 Hours="$(expr $Time / 100)"
 Minutes="$(expr $Time % 100)"
 
+if [ "$Minutes" -gt "59" ]; then
+Hours=`expr $Hours + 1`
+Minutes="00"
+fi
+if [ "$Hours" -gt "24" ]; then
+Hours="24"
+Minutes="00"
+fi
+len_Hours=`stringLength "$Hours"`
+[ "$len_Hours" -lt 2 ] && Hours="0$Hours"
+len_Minutes=`stringLength "$Minutes"`
+[ "$len_Minutes" -lt 2 ] && Minutes="0$Minutes"
+Time="${Hours}${Minutes}"
+
+Minutes_0="$(expr $Minutes % 10)"
+
 Minutes_5="$(expr $Minutes / 10 % 10)"
 
-if [ "$Minutes_5" == "5" ]; then
+if [ "$Minutes_5" -ge "5" ]; then
 result="$(expr $(expr $Hours + 1) \* 100)"
+else
+if [ "$Minutes_0" -eq "00" ] || [ "$Minutes_0" -eq "0" ]; then
+result="$(expr $Time / 10 \* 10)"
 else
 result="$(expr $Time / 10 \* 10 + 10)"
 fi
+fi
+
+[ "$result" -gt "2400" ] && result="2400"
 
 len=`stringLength "$result"`
 [ "$len" == "3" ] && result="0$result"
