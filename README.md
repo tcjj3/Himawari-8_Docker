@@ -88,7 +88,7 @@ Docker for Himawari-8 decoding, using [**sam210723/himawari-rx**](https://github
       (default: 0), V = dvr number (default: 0). By default, the first receiver
       device is used. Use the tslsdvb utility to list all DVB devices.
 ```
-   For example:
+   For example (for TBS5520SE Device [ adapter 0 frontend 1, is for DVB-S2 ]):
 ```
 [tcjj3@debian]$ sudo docker volume create himawari-rx
 [tcjj3@debian]$ sudo docker volume create himawari-rx_config
