@@ -77,6 +77,36 @@ Docker for Himawari-8 decoding, using [**sam210723/himawari-rx**](https://github
  -v himawari-rx:/usr/local/bin/himawari-rx/src/received \
  tcjj3/himawari-8_docker:latest
 ```
+<br>
+
+   If you want to choose device or frontend, just add a "`DEVICE`" environment variable in it (if it is empty, the script will use `adapter0` and use the `frontend` automatically), it is like "`-d name`" or "`--device-name name`" for `TSDuck`. (Use `tsp -I dvb --help` command for help)
+```
+  -d name
+  --device-name name
+      Specify the DVB receiver device name, /dev/dvb/adapterA[:F[:M[:V]]] where
+      A = adapter number, F = frontend number (default: 0), M = demux number
+      (default: 0), V = dvr number (default: 0). By default, the first receiver
+      device is used. Use the tslsdvb utility to list all DVB devices.
+```
+   For example:
+```
+[tcjj3@debian]$ sudo docker volume create himawari-rx
+[tcjj3@debian]$ sudo docker volume create himawari-rx_config
+[tcjj3@debian]$ sudo docker run -d -i -t \
+ --privileged \
+ --restart always \
+ --name=himawari-8 \
+ --device /dev/bus/usb \
+ -v /dev/dvb:/dev/dvb \
+ -e DEVICE="/dev/dvb/adapter0:1" \
+ -p 5007:5006 \
+ -p 9998:9999 \
+ -v himawari-rx_config:/opt/himawari-rx_config \
+ -v himawari-rx:/usr/local/bin/himawari-rx/src/received \
+ tcjj3/himawari-8_docker:latest
+```
+<br>
+
    If you want to customize the `times` of generate animation pictures, just add a "`CONVERT_TIMES`" environment variable in it (default `CONVERT_TIMES` value is "`0000`"). The `times` are UTC times, included `hours` and `minutes`. Each `time` connnected with "`,`", like "`2200,0000`".
    <br>
    For example:
