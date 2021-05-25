@@ -4,6 +4,7 @@ LABEL maintainer "Chaojun Tan <https://github.com/tcjj3>"
 
 ADD gif.py /opt/gif.py
 ADD convert.sh /opt/convert.sh
+ADD set_convert_times.sh /opt/set_convert_times.sh
 ADD entrypoint.sh /opt/entrypoint.sh
 
 RUN export DIR_TMP="$(mktemp -d)" \
