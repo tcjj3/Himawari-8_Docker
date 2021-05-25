@@ -6,8 +6,16 @@ Docker for Himawari-8 decoding, using [**sam210723/himawari-rx**](https://github
 
 Here is an example for TBS5520SE:
 <br>
+<br>
 
-1. Install driver:
+
+**1. Install:**
+<br>
+<br>
+
+For the newest systems:
+<br>
+**Install driver and "firmware":**
 ```
 [tcjj3@debian]$ sudo apt update
 [tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl
@@ -19,21 +27,49 @@ Here is an example for TBS5520SE:
 [tcjj3@debian]$ sudo rm -rf /lib/modules/`uname -r`/kernel/drivers/media/
 [tcjj3@debian]$ sudo ./install.sh
 [tcjj3@debian]$ cd ..
+[tcjj3@debian]$ reboot
+```
+<br>
+
+For some old systems:
+<br>
+**(1) Install driver:**
+```
+[tcjj3@debian]$ sudo apt update
+[tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl
+[tcjj3@debian]$ mkdir tbsdriver
+[tcjj3@debian]$ cd tbsdriver
+[tcjj3@debian]$ git clone https://github.com/tbsdtv/media_build.git
+[tcjj3@debian]$ git clone --depth=1 https://github.com/tbsdtv/linux_media.git -b latest ./media
+[tcjj3@debian]$ cd media_build
+[tcjj3@debian]$ make dir DIR=../media
+[tcjj3@debian]$ make distclean
+[tcjj3@debian]$ make -j4
+[tcjj3@debian]$ sudo make install
+[tcjj3@debian]$ cd ..
 ```
 
-2. Install "firmware":
+**(2) Install "firmware":**
 ```
 [tcjj3@debian]$ wget http://www.tbsdtv.com/download/document/linux/tbs-tuner-firmwares_v1.0.tar.bz2
 [tcjj3@debian]$ sudo tar jxf tbs-tuner-firmwares_v1.0.tar.bz2 -C /lib/firmware/
 [tcjj3@debian]$ sudo reboot
 ```
+<br>
+<br>
 
-3. Create link files for DVB interfaces to "lock the S signal":
+
+**2. Create link files:**
+<br>
+**Create link files for DVB interfaces to "lock the S signal":**
 ```
 [tcjj3@debian]$ sudo ln -s demux0 /dev/dvb/adapter0/demux1
 [tcjj3@debian]$ sudo ln -s dvr0 /dev/dvb/adapter0/dvr1
 [tcjj3@debian]$ sudo ln -s net0 /dev/dvb/adapter0/net1
 ```
+<br>
+<br>
+
 
 
 ## Start:
@@ -129,6 +165,8 @@ Here is an example for TBS5520SE:
  -v himawari-rx:/usr/local/bin/himawari-rx/src/received \
  tcjj3/himawari-8_docker:latest
 ```
+<br>
+<br>
 
 
 ## Get Files
