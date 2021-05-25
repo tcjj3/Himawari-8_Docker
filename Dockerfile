@@ -47,9 +47,9 @@ RUN export DIR_TMP="$(mktemp -d)" \
   && rm -r srt-1.4.2 \
   && rm srt.tar.gz \
   && if [ "$(dpkg --print-architecture)" = "amd64" ]; then \
-        TSDuck_URL="https://github.com/tsduck/tsduck/releases/download/v3.25-2237/tsduck_3.25-2237.debian10_amd64.deb"; \
+        TSDuck_URL="https://github.com/tsduck/tsduck/releases/download/v3.26-2349/tsduck_3.26-2349.debian10_amd64.deb"; \
    elif [ "$(dpkg --print-architecture)" = "armhf" ]; then \
-        TSDuck_URL="https://github.com/tsduck/tsduck/releases/download/v3.25-2237/tsduck_3.25-2237.raspbian10_armhf.deb"; \
+        TSDuck_URL="https://github.com/tsduck/tsduck/releases/download/v3.26-2349/tsduck_3.26-2349.raspbian10_armhf.deb"; \
      fi \
   && mkdir tsduck \
   && cd tsduck \
