@@ -37,15 +37,15 @@ RUN export DIR_TMP="$(mktemp -d)" \
                                                 imagemagick \
   && mkdir -p /etc/caddy \
   && mkdir -p /opt/himawari-rx_config \
-  && curl -L https://github.com/Haivision/srt/archive/v1.4.2.tar.gz -o srt.tar.gz \
-  && tar zxvf srt.tar.gz \
-  && cd srt-1.4.2 \
+  && curl -L https://github.com/Haivision/srt/archive/refs/tags/v1.4.3.tar.gz -o srt.tar.gz \
+  && tar zxf srt.tar.gz \
+  && cd srt-1.4.3 \
   && ./configure \
   && make \
   && make install \
   && ldconfig \
   && cd .. \
-  && rm -r srt-1.4.2 \
+  && rm -r srt-1.4.3 \
   && rm srt.tar.gz \
   && if [ "$(dpkg --print-architecture)" = "amd64" ]; then \
         TSDuck_URL="https://github.com/tsduck/tsduck/releases/download/v3.26-2349/tsduck_3.26-2349.debian10_amd64.deb"; \
@@ -56,7 +56,7 @@ RUN export DIR_TMP="$(mktemp -d)" \
   && cd tsduck \
   && curl -L "$TSDuck_URL" -o tsduck.deb \
   && ar -x tsduck.deb \
-  && tar Jxvf data.tar.xz \
+  && tar Jxf data.tar.xz \
   && cp usr/lib/libtsduck.so /usr/lib/ \
   && cp -r usr/lib/tsduck /usr/lib/ \
   && cp usr/bin/ts* /usr/bin/ \
