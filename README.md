@@ -48,6 +48,24 @@ For some old systems:
 [tcjj3@debian]$ sudo make install
 [tcjj3@debian]$ cd ..
 ```
+If `make -j4` has errors like "`ERROR: "__devm_regmap_init_sccb" [/home/tcjj3/tbsdriver/media_build/v4l/ov9650.ko] undefined`" and "`ERROR: "__devm_regmap_init_sccb" [/home/tcjj3/tbsdriver/media_build/v4l/ov772x.ko] undefined`", just use the following commands to install it (these commands are from this comment: [https://github.com/tbsdtv/linux_media/issues/209#issuecomment-780035850](https://github.com/tbsdtv/linux_media/issues/209#issuecomment-780035850)):
+```
+[tcjj3@debian]$ sudo apt update
+[tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl
+[tcjj3@debian]$ mkdir tbsdriver
+[tcjj3@debian]$ cd tbsdriver
+[tcjj3@debian]$ git clone https://github.com/tbsdtv/media_build.git
+[tcjj3@debian]$ git clone --depth=1 https://github.com/tbsdtv/linux_media.git -b latest ./media
+[tcjj3@debian]$ cd media_build
+[tcjj3@debian]$ make dir DIR=../media
+[tcjj3@debian]$ sed -i '/VIDEO_OV9650/d' ./v4l/versions.txt && sed -i '/9.255.255/a VIDEO_OV9650' ./v4l/versions.txt
+[tcjj3@debian]$ sed -i '/VIDEO_OV772X/d' ./v4l/versions.txt && sed -i '/9.255.255/a VIDEO_OV772X' ./v4l/versions.txt
+[tcjj3@debian]$ sed -i -r 's/(^CONFIG.*_RC.*=)./\1n/g' v4l/.config
+[tcjj3@debian]$ make distclean
+[tcjj3@debian]$ make -j4
+[tcjj3@debian]$ sudo make install
+[tcjj3@debian]$ cd ..
+```
 
 **(2) Install "firmware":**
 ```
