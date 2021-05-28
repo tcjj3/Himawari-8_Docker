@@ -18,7 +18,7 @@ For the newest systems:
 **Install driver and "firmware":**
 ```
 [tcjj3@debian]$ sudo apt update
-[tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl
+[tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl libelf-dev
 [tcjj3@debian]$ mkdir tbsdriver
 [tcjj3@debian]$ cd tbsdriver
 [tcjj3@debian]$ wget http://www.tbsdtv.com/download/document/linux/media_build-2021-02-04.tar.bz2
@@ -32,7 +32,7 @@ For the newest systems:
 If `install.sh` has errors like "`ERROR: "__devm_regmap_init_sccb" [/home/tcjj3/tbsdriver_new/media_build/v4l/ov772x.ko] undefined`", just use the following commands instead (these commands are from this comment: [https://github.com/tbsdtv/linux_media/issues/209#issuecomment-780035850](https://github.com/tbsdtv/linux_media/issues/209#issuecomment-780035850)):
 ```
 [tcjj3@debian]$ sudo apt update
-[tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl
+[tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl libelf-dev
 [tcjj3@debian]$ mkdir tbsdriver
 [tcjj3@debian]$ cd tbsdriver
 [tcjj3@debian]$ wget http://www.tbsdtv.com/download/document/linux/media_build-2021-02-04.tar.bz2
@@ -52,7 +52,7 @@ For some old systems:
 **(1) Install driver:**
 ```
 [tcjj3@debian]$ sudo apt update
-[tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl
+[tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl libelf-dev
 [tcjj3@debian]$ mkdir tbsdriver
 [tcjj3@debian]$ cd tbsdriver
 [tcjj3@debian]$ git clone https://github.com/tbsdtv/media_build.git
@@ -67,7 +67,7 @@ For some old systems:
 If `make -j4` has errors like "`ERROR: "__devm_regmap_init_sccb" [/home/tcjj3/tbsdriver/media_build/v4l/ov9650.ko] undefined`" and "`ERROR: "__devm_regmap_init_sccb" [/home/tcjj3/tbsdriver/media_build/v4l/ov772x.ko] undefined`", just use the following commands instead (these commands are from this comment: [https://github.com/tbsdtv/linux_media/issues/209#issuecomment-780035850](https://github.com/tbsdtv/linux_media/issues/209#issuecomment-780035850)):
 ```
 [tcjj3@debian]$ sudo apt update
-[tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl
+[tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl libelf-dev
 [tcjj3@debian]$ mkdir tbsdriver
 [tcjj3@debian]$ cd tbsdriver
 [tcjj3@debian]$ git clone https://github.com/tbsdtv/media_build.git
