@@ -26,7 +26,7 @@ For the newest systems:
 [tcjj3@debian]$ cd media_build
 [tcjj3@debian]$ sudo rm -rf /lib/modules/`uname -r`/kernel/drivers/media/
 [tcjj3@debian]$ sudo ./install.sh
-[tcjj3@debian]$ cd ..
+[tcjj3@debian]$ cd ../..
 [tcjj3@debian]$ sudo reboot
 ```
 If `install.sh` has errors like "`ERROR: "__devm_regmap_init_sccb" [/home/tcjj3/tbsdriver_new/media_build/v4l/ov772x.ko] undefined`", just use the following commands instead (these commands are from this comment: [https://github.com/tbsdtv/linux_media/issues/209#issuecomment-780035850](https://github.com/tbsdtv/linux_media/issues/209#issuecomment-780035850)):
@@ -42,7 +42,7 @@ If `install.sh` has errors like "`ERROR: "__devm_regmap_init_sccb" [/home/tcjj3/
 [tcjj3@debian]$ sed -i '/VIDEO_OV772X/d' ./v4l/versions.txt && sed -i '/9.255.255/a VIDEO_OV772X' ./v4l/versions.txt
 [tcjj3@debian]$ sed -i -r 's/(^CONFIG.*_RC.*=)./\1n/g' v4l/.config
 [tcjj3@debian]$ sudo ./install.sh
-[tcjj3@debian]$ cd ..
+[tcjj3@debian]$ cd ../..
 [tcjj3@debian]$ sudo reboot
 ```
 <br>
