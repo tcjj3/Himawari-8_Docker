@@ -87,6 +87,7 @@ If `make -j4` has errors like "`ERROR: "__devm_regmap_init_sccb" [/home/tcjj3/tb
 ```
 [tcjj3@debian]$ wget http://www.tbsdtv.com/download/document/linux/tbs-tuner-firmwares_v1.0.tar.bz2
 [tcjj3@debian]$ sudo tar jxf tbs-tuner-firmwares_v1.0.tar.bz2 -C /lib/firmware/
+[tcjj3@debian]$ cd ..
 [tcjj3@debian]$ sudo reboot
 ```
 <br>
