@@ -21,8 +21,8 @@ For the newest systems:
 [tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl libelf-dev
 [tcjj3@debian]$ mkdir tbsdriver
 [tcjj3@debian]$ cd tbsdriver
-[tcjj3@debian]$ wget http://www.tbsdtv.com/download/document/linux/media_build-2021-02-04.tar.bz2
-[tcjj3@debian]$ tar jxf media_build-2021-02-04.tar.bz2
+[tcjj3@debian]$ wget http://www.tbsdtv.com/download/document/linux/media_build-2021-05-08.tar.bz2
+[tcjj3@debian]$ tar jxf media_build-2021-05-08.tar.bz2
 [tcjj3@debian]$ cd media_build
 [tcjj3@debian]$ sudo rm -rf /lib/modules/`uname -r`/kernel/drivers/media/
 [tcjj3@debian]$ sudo ./install.sh
@@ -35,8 +35,8 @@ If `install.sh` has errors like "`ERROR: "__devm_regmap_init_sccb" [/home/tcjj3/
 [tcjj3@debian]$ sudo apt install -y wget ca-certificates git patchutils gcc kmod make libproc-processtable-perl libelf-dev
 [tcjj3@debian]$ mkdir tbsdriver
 [tcjj3@debian]$ cd tbsdriver
-[tcjj3@debian]$ wget http://www.tbsdtv.com/download/document/linux/media_build-2021-02-04.tar.bz2
-[tcjj3@debian]$ tar jxf media_build-2021-02-04.tar.bz2
+[tcjj3@debian]$ wget http://www.tbsdtv.com/download/document/linux/media_build-2021-05-08.tar.bz2
+[tcjj3@debian]$ tar jxf media_build-2021-05-08.tar.bz2
 [tcjj3@debian]$ cd media_build
 [tcjj3@debian]$ sudo rm -rf /lib/modules/`uname -r`/kernel/drivers/media/
 [tcjj3@debian]$ sed -i '/VIDEO_OV772X/d' ./v4l/versions.txt && sed -i '/9.255.255/a VIDEO_OV772X' ./v4l/versions.txt
